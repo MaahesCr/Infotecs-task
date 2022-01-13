@@ -1,0 +1,124 @@
+*{
+    font-family: 'lucida console', Courier, monospace;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.main-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-section__header-div{
+    text-align: center;
+}
+
+.main-section__header{
+    font-size: 24px;
+    font-weight: 700;
+    margin: 50px 0;
+}
+
+.main-section__empty-div{
+    width: 200px;
+    padding: 10px;
+    margin: 0 20px;
+}
+
+.main-section__table {
+    border: 1px solid #dddddd;
+    border-collapse: collapse; 
+    width: 50%;
+    margin-bottom: 30px;
+}
+
+.main-section__table tr{
+    cursor: pointer;
+}
+
+.main-section__table th {
+    padding: 15px 10px;;
+    background: #efefef;
+    border: 1px solid #616161;
+}
+
+.main-section__table thead th {
+    cursor: pointer;
+    padding: 15px;
+    background: #b9c6ff;
+    border: 1px solid #616161;
+}
+
+th:nth-child(-n+2) {
+    width: auto;
+    max-width: 160px;
+    overflow: hidden;
+}
+
+th:nth-child(3) {
+    width: auto;
+    overflow: hidden;
+    cursor: default;
+    max-width: 400px;
+    overflow: hidden;
+}
+
+th:nth-child(4) {
+    width: auto;
+    line-height: 1.5;
+    max-width: 160px;
+    overflow: hidden;
+}
+
+.table__about{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 1.1;
+    overflow: hidden;
+}
+
+
+.main-section__edit-form{
+    text-align: center;
+    position: sticky;
+    width: 200px;
+	top: 100px;
+    padding: 10px;
+    align-self: flex-end;
+    margin: 0 20px;
+    border: 1px solid #616161;
+    border-radius: 4px;
+    background-color: #efefef;
+    align-self: flex-start;
+}
+
+.main-section__edit-form input{
+    padding: 8px 2px;
+    margin: 4px 0;
+}
+
+.main-section__edit-form textarea{
+    padding: 8px 2px;
+    margin: 4px 0;
+    width: 195px;
+    resize: none;
+}
+
+.main-section__edit-form button{
+    background-color: #b9c6ff;
+    padding: 4px;
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.main-section__main-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
