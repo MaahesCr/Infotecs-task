@@ -521,7 +521,7 @@ function createTable() {  // вроде бы особо нечего расск�
         tr.innerHTML = `<th>${json[key].name.firstName}</th>
         <th>${json[key].name.lastName}</th>
         <th>
-        <span class="table__about">
+        <span class="table__about" style = "pointer-events: none;">
         ${json[key].about}
         </span>
         </th>
@@ -567,6 +567,9 @@ let aboutTh;
 let eyeColorTh;
 
 table__tr.addEventListener('click',e => { // Событие при клике на таблицу (тело таблицы)
+  let formVisable = document.querySelector('.main-section__absolute-div-form');
+  formVisable.setAttribute('style', 'display: block');
+
   let target = e.target;  //получение нажатого элемента 
   let parent = target.parentElement;  // получение родительского элемента
 

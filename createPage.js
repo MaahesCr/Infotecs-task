@@ -22,10 +22,10 @@ let htmlContent = `<!DOCTYPE html>
             <table class="main-section__table table">
                 <thead>
                     <tr>
-                        <th>First Name <img src="assets/img/icons8-sort-24.png" alt="sort"></th>
-                        <th>Last Name <img src="assets/img/icons8-sort-24.png" alt="sort"></th>
-                        <th>About <img src="assets/img/icons8-sort-24.png" alt="sort"></th>
-                        <th>Eye Color <img src="assets/img/icons8-sort-24.png" alt="sort"></th>
+                        <th>First Name <img style = "pointer-events: none;" src="assets/img/icons8-sort-24.png" alt="sort"></th>
+                        <th>Last Name <img style = "pointer-events: none;" src="assets/img/icons8-sort-24.png" alt="sort"></th>
+                        <th>About <img style = "pointer-events: none;" src="assets/img/icons8-sort-24.png" alt="sort"></th>
+                        <th>Eye Color <img style = "pointer-events: none;" src="assets/img/icons8-sort-24.png" alt="sort"></th>
                     </tr>
                 </thead>
                 <tbody class="table__tbody">
