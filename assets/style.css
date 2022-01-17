@@ -268,5 +268,9 @@ th:nth-child(4) {
         padding: 2px;
     }
  }
+
+ .unvisable{
+     display: none;
+ }
  
 

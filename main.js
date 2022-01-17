@@ -511,13 +511,15 @@ let json = JSON.parse(fileContent);
 document.addEventListener('DOMContentLoaded',() => {    
     createTable();   // создает тег <tr>, с вложенными <th>, данные беруться из json   
     sortTable();    //  позволяет сортировать таблицу 
-});
+    paginationTable();
+  });
 
 function createTable() {  // вроде бы особо нечего рассказывать про функцию, все просто и наглядно, но при необходимости могу расписать подробнее 
     const table__tbody = document.querySelector(".table__tbody");
     for (key in json) {
         let tr = document.createElement('tr');
         tr.classList.add('table__tr');
+        tr.classList.add('unvisable');
         tr.innerHTML = `<th>${json[key].name.firstName}</th>
         <th>${json[key].name.lastName}</th>
         <th>
@@ -567,6 +569,7 @@ let aboutTh;
 let eyeColorTh;
 
 table__tr.addEventListener('click',e => { // Событие при клике на таблицу (тело таблицы)
+  
   let formVisable = document.querySelector('.main-section__absolute-div-form');
   formVisable.setAttribute('style', 'display: block');
 
@@ -609,6 +612,36 @@ function updateData () {  // функция срабатывает при наж
 }
 
 
+
+const mainSection__navigation = document.querySelector(".main-section__navigation");
+mainSection__navigation.addEventListener('click',e => {
+  let navNumb = e.target.text;
+  const table__tbody = document.querySelector(".table__tbody");
+  console.log(typeof(navNumb));
+    if (typeof(navNumb) == typeof("")) {
+    for (let i = 1; i < table__tbody.childNodes.length; i++) {
+      if (!table__tbody.childNodes[i].classList.contains("unvisable")) {
+        table__tbody.childNodes[i].classList.add("unvisable");
+      } 
+    }
+
+    let arr = [[1,11],[11,21],[21,31],[31,41],[41,51]];
+
+    for (let i = arr[navNumb - 1][0]; i < arr[navNumb - 1][1]; i++) {
+        table__tbody.childNodes[i].classList.remove("unvisable");
+    }
+  }
+
+});
+
+function paginationTable() {
+  const table__tbody = document.querySelector(".table__tbody");
+  for (let i = 0; i < 10; i++) {
+    table__tbody.childNodes[i+1].classList.toggle("unvisable");
+  }
+}
+
+
 /*
 function calcRowCount() {
         for (key in json) {
@@ -643,3 +676,57 @@ document.querySelectorAll('.table__tr').forEach(tableTH => tableTH.addEventListe
   console.log(parent);
 }));
 */
+
+/*
+  if (navNumb == 1) {
+    for (let i = 0; i < 10; i++) {
+      if (table__tbody.childNodes[i+1].classList.contains("unvisable")) {
+        table__tbody.childNodes[i+1].classList.remove("unvisable");
+      } 
+    }
+
+    for (let i = 10; i < 50; i++){
+      if (!table__tbody.childNodes[i+1].classList.contains("unvisable")) {
+        table__tbody.childNodes[i+1].classList.add("unvisable");
+      } 
+    }
+  } 
+
+  if (navNumb == 2) {
+    for (let i = 11; i < 20; i++) {
+      if (table__tbody.childNodes[i+1].classList.contains("unvisable")) {
+        table__tbody.childNodes[i+1].classList.remove("unvisable");
+      } 
+    }
+
+    for (let i = 20; i < 50; i++){
+      if (!table__tbody.childNodes[i+1].classList.contains("unvisable")) {
+        table__tbody.childNodes[i+1].classList.add("unvisable");
+      } 
+    }
+
+    for (let i = 0; i < 10; i++){
+      if (!table__tbody.childNodes[i+1].classList.contains("unvisable")) {
+        table__tbody.childNodes[i+1].classList.add("unvisable");
+      } 
+    }
+  }
+  
+  if (navNumb == 3) {
+    for (let i = 1; i < table__tbody.childNodes.length; i++) {
+      if (!table__tbody.childNodes[i].classList.contains("unvisable")) {
+        table__tbody.childNodes[i].classList.add("unvisable");
+      } 
+    }
+
+    // 1 : 1-11
+    let arr = [[1,11],[12,21],[22,31],[32,41],[42,51]];
+    console.log(arr[navNumb - 1])
+
+    for (let i = 10; i < 50; i++){
+      if (!table__tbody.childNodes[i+1].classList.contains("unvisable")) {
+        table__tbody.childNodes[i+1].classList.add("unvisable");
+      } 
+    }
+  } 
+  */

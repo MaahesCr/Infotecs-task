@@ -18,6 +18,14 @@ let htmlContent = `<!DOCTYPE html>
                 позицию «Программист на языке
                 JS»</h1>
         </div>
+        
+        <nav class = "main-section__navigation" style="margin-bottom: 10px;">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+        </nav>
  
             <table class="main-section__table table">
                 <thead>
