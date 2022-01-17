@@ -611,15 +611,15 @@ function updateData () {  // функция срабатывает при наж
 
 }
 
-
+// === Пагинация таблицы ===
 
 const mainSection__navigation = document.querySelector(".main-section__navigation");
-mainSection__navigation.addEventListener('click',e => {
-  let navNumb = e.target.text;
-  const table__tbody = document.querySelector(".table__tbody");
-  console.log(typeof(navNumb));
-    if (typeof(navNumb) == typeof("")) {
-    for (let i = 1; i < table__tbody.childNodes.length; i++) {
+mainSection__navigation.addEventListener('click',e => { // событие при клике на тег навигации 
+  let navNumb = e.target.text;  //нажатая ссылка 
+  const table__tbody = document.querySelector(".table__tbody"); 
+  
+    if (typeof(navNumb) == typeof("")) {  // проверка того что нажата ссылка  
+    for (let i = 1; i < table__tbody.childNodes.length; i++) {  //все объекты таблицы становяться невидимыми 
       if (!table__tbody.childNodes[i].classList.contains("unvisable")) {
         table__tbody.childNodes[i].classList.add("unvisable");
       } 
@@ -627,21 +627,76 @@ mainSection__navigation.addEventListener('click',e => {
 
     let arr = [[1,11],[11,21],[21,31],[31,41],[41,51]];
 
-    for (let i = arr[navNumb - 1][0]; i < arr[navNumb - 1][1]; i++) {
+    for (let i = arr[navNumb - 1][0]; i < arr[navNumb - 1][1]; i++) { //делаю видимыми необхадимые элементы 
         table__tbody.childNodes[i].classList.remove("unvisable");
     }
   }
 
 });
 
-function paginationTable() {
+function paginationTable() {  // оставляю видимыми первые 10 элементов 
   const table__tbody = document.querySelector(".table__tbody");
   for (let i = 0; i < 10; i++) {
     table__tbody.childNodes[i+1].classList.toggle("unvisable");
   }
 }
 
+// === Скрыть/показать таблицу ===
 
+const mainSection__hiddenBtns = document.querySelector(".main-section__hidden-btns");
+const tr = document.querySelector(".main-section__table tr");
+
+mainSection__hiddenBtns.addEventListener('click',e => { 
+  let valBtn = e.target.innerHTML;  
+  if (valBtn == "Скрыть First name" || valBtn == "Показать First name") {  
+    for (let i = 1; i < table__tr.childNodes.length; i++) {
+      table__tr.childNodes[i].childNodes[0].classList.toggle("unvisable");
+    }
+    
+    tr.childNodes[1].classList.toggle("unvisable");
+    if (e.target.innerHTML == "Показать First name") {
+      e.target.innerHTML = "Скрыть First name";
+    } else {
+      e.target.innerHTML = "Показать First name";
+    }
+
+  } else if (valBtn == "Скрыть Last name" || valBtn == "Показать Last name") {
+    for (let i = 1; i < table__tr.childNodes.length; i++) {
+      table__tr.childNodes[i].childNodes[2].classList.toggle("unvisable");
+    }
+    
+    tr.childNodes[3].classList.toggle("unvisable");
+    if (e.target.innerHTML == "Показать Last name") {
+      e.target.innerHTML = "Скрыть Last name";
+    } else {
+      e.target.innerHTML = "Показать Last name";
+    }
+  } else if (valBtn == "Скрыть About" || valBtn == "Показать About") {                          // ------------------------- //
+    for (let i = 1; i < table__tr.childNodes.length; i++) {
+      table__tr.childNodes[i].childNodes[4].classList.toggle("unvisable");
+    }
+    
+    tr.childNodes[5].classList.toggle("unvisable");
+    if (e.target.innerHTML == "Показать About") {
+      e.target.innerHTML = "Скрыть About";
+    } else {
+      e.target.innerHTML = "Показать About";
+    }
+  } else if (valBtn == "Скрыть Eye color" || valBtn == "Показать Eye color") {
+    for (let i = 1; i < table__tr.childNodes.length; i++) {
+      table__tr.childNodes[i].childNodes[6].classList.toggle("unvisable");
+    }
+    
+    tr.childNodes[7].classList.toggle("unvisable");
+    if (e.target.innerHTML == "Показать Eye color") {
+      e.target.innerHTML = "Скрыть Eye color";
+    } else {
+      e.target.innerHTML = "Показать Eye color";
+    }
+  }
+
+  // Скрыть Last name Скрыть About Скрыть Eye color
+});
 /*
 function calcRowCount() {
         for (key in json) {

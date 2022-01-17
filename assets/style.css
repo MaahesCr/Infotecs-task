@@ -34,6 +34,34 @@ html, body{
     margin: 0 20px;
 }
 */
+
+.main-section__hidden-btns{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 ;
+}
+
+.main-section__hidden-btns div{
+    margin: 5px 0;
+    height: 100%;
+    
+    text-align: center;
+    padding: 4px;
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 7px;
+}
+/*
+.main-section__hidden-btns div:first-child{
+    margin-left: 30px;
+    text-align: start;
+}
+
+.main-section__hidden-btns div:last-child{
+    /*margin-right: 30px;
+    text-align: end;
+}
+*/
 .main-section__table {
     border: 1px solid #dddddd;
     border-collapse: collapse; 

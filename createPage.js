@@ -26,7 +26,15 @@ let htmlContent = `<!DOCTYPE html>
             <a href="#">4</a>
             <a href="#">5</a>
         </nav>
- 
+
+        <div style="width: 50%;">
+            <div class="main-section__hidden-btns">
+                <div>Скрыть First name</div>
+                <div>Скрыть Last name</div>
+                <div>Скрыть About</div>
+                <div>Скрыть Eye color</div>
+            </div>
+        </div>
             <table class="main-section__table table">
                 <thead>
                     <tr>
