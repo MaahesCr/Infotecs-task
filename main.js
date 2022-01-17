@@ -512,6 +512,7 @@ document.addEventListener('DOMContentLoaded',() => {
     createTable();   // создает тег <tr>, с вложенными <th>, данные беруться из json   
     sortTable();    //  позволяет сортировать таблицу 
     paginationTable();
+    setBacgraundColors();
   });
 
 function createTable() {  // вроде бы особо нечего рассказывать про функцию, все просто и наглядно, но при необходимости могу расписать подробнее 
@@ -641,26 +642,28 @@ function paginationTable() {  // оставляю видимыми первые 
   }
 }
 
-// === Скрыть/показать таблицу ===
+// === Скрыть/показать столбцы ===
 
 const mainSection__hiddenBtns = document.querySelector(".main-section__hidden-btns");
 const tr = document.querySelector(".main-section__table tr");
 
-mainSection__hiddenBtns.addEventListener('click',e => { 
+mainSection__hiddenBtns.addEventListener('click', e => {   // событи при клике не див с кнопками скрытия
   let valBtn = e.target.innerHTML;  
-  if (valBtn == "Скрыть First name" || valBtn == "Показать First name") {  
+  if (valBtn == "Скрыть First name" || valBtn == "Показать First name") {  // если нажата Скрыть First name
     for (let i = 1; i < table__tr.childNodes.length; i++) {
-      table__tr.childNodes[i].childNodes[0].classList.toggle("unvisable");
+      table__tr.childNodes[i].childNodes[0].classList.toggle("unvisable");  // проходимся по всем th и прибавляем/убираем класс "unvisable"
     }
     
-    tr.childNodes[1].classList.toggle("unvisable");
-    if (e.target.innerHTML == "Показать First name") {
+    tr.childNodes[1].classList.toggle("unvisable"); // для шапки столбца 
+    if (e.target.innerHTML == "Показать First name") {  // меняем название 
       e.target.innerHTML = "Скрыть First name";
     } else {
       e.target.innerHTML = "Показать First name";
     }
 
-  } else if (valBtn == "Скрыть Last name" || valBtn == "Показать Last name") {
+    // -- Ниже 3 блока аналогичного кода для разных кнопок 
+
+  } else if (valBtn == "Скрыть Last name" || valBtn == "Показать Last name") {    // -- Скрыть Last name -- 
     for (let i = 1; i < table__tr.childNodes.length; i++) {
       table__tr.childNodes[i].childNodes[2].classList.toggle("unvisable");
     }
@@ -671,7 +674,7 @@ mainSection__hiddenBtns.addEventListener('click',e => {
     } else {
       e.target.innerHTML = "Показать Last name";
     }
-  } else if (valBtn == "Скрыть About" || valBtn == "Показать About") {                          // ------------------------- //
+  } else if (valBtn == "Скрыть About" || valBtn == "Показать About") {              // -- Скрыть About --              
     for (let i = 1; i < table__tr.childNodes.length; i++) {
       table__tr.childNodes[i].childNodes[4].classList.toggle("unvisable");
     }
@@ -682,7 +685,7 @@ mainSection__hiddenBtns.addEventListener('click',e => {
     } else {
       e.target.innerHTML = "Показать About";
     }
-  } else if (valBtn == "Скрыть Eye color" || valBtn == "Показать Eye color") {
+  } else if (valBtn == "Скрыть Eye color" || valBtn == "Показать Eye color") {         // -- Скрыть Eye color --
     for (let i = 1; i < table__tr.childNodes.length; i++) {
       table__tr.childNodes[i].childNodes[6].classList.toggle("unvisable");
     }
@@ -697,6 +700,25 @@ mainSection__hiddenBtns.addEventListener('click',e => {
 
   // Скрыть Last name Скрыть About Скрыть Eye color
 });
+
+// === Скрыть/показать столбцы ===
+
+function setBacgraundColors() {
+  const table__tbody = document.querySelector(".table__tbody");
+  for (let i = 1; i < table__tbody.childNodes.length; i++) {
+    if (table__tr.childNodes[i].childNodes[6].innerHTML == "blue") {  // при значении blue, устанавливаю атрибут сооьветствующий style 
+      //table__tr.childNodes[i].childNodes[6].classList.add("blue");
+      table__tr.childNodes[i].childNodes[6].setAttribute("style", "background-color: lightblue;");
+    } else if (table__tr.childNodes[i].childNodes[6].innerHTML == "brown") {
+      table__tr.childNodes[i].childNodes[6].setAttribute("style", "background-color: rgb(152, 118, 84);");
+    } else if (table__tr.childNodes[i].childNodes[6].innerHTML == "red") {
+      table__tr.childNodes[i].childNodes[6].setAttribute("style", "background-color: lightcoral;");
+    } else if (table__tr.childNodes[i].childNodes[6].innerHTML == "green") {
+      table__tr.childNodes[i].childNodes[6].setAttribute("style", "background-color: lightgreen;");
+    }
+  }
+}
+
 /*
 function calcRowCount() {
         for (key in json) {

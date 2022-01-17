@@ -301,4 +301,21 @@ th:nth-child(4) {
      display: none;
  }
  
+ .blue{
+    background-color: lightblue;
+ }
+
+ .brown{
+     background-color: rgb(116, 87, 87);
+ }
+
+ .red{
+    background-color: lightcoral;
+ }
+
+ .green{
+    background-color: lightgreen;
+ }
+
+
 
